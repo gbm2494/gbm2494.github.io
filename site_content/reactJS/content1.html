@@ -3,6 +3,7 @@
       <title>Web Development Blog - ReactJS</title>
       <link rel="stylesheet" href="/style/bootstrap/css/bootstrap.min.css">
       <link rel="stylesheet" href="/style/customizable_menu.css">
+      <link rel="stylesheet" href="/style/site.css">
       <script src="/js/jquery-3.2.1.min.js"></script>
       <script src="/style/bootstrap/js/bootstrap.min.js"></script>
       <script src="/js/w3.js"></script>
@@ -37,132 +38,123 @@
 
   <!--main-->
   <div class="container">
+
+    <ol class="breadcrumb">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/index.html">ReactJS and Redux</a></li>
+      <li class="active">Content 1: Model-View-Controller</li>
+    </ol>
+
   	<div class="row">
         <!--left-->
         <div class="col-md-3" id="leftCol">
           <ul class="nav nav-stacked" id="sidebar">
-            <li><a href="#sec0">General Objective</a></li>
-            <li><a href="#sec1">Specific Objectives</a></li>
-            <li><a href="#sec2">Content and Methodology</a></li>
-            <li><a href="#sec3">Project</a></li>
+            <li><a href="#sec0">Definition of MVC</a></li>
+            <li><a href="#sec1">- Model</a></li>
+            <li><a href="#sec2">- View</a></li>
+            <li><a href="#sec3">- Controller</a></li>
+            <li><a href="#sec4">ReactJS Layers</a></li>
+            <li><a href="#sec5">References</a></li>
           </ul>
         </div><!--/left-->
 
         <!--right-->
         <div class="col-md-9">
-          <h2 id="sec0">General Objective</h2>
-          <p>
-            Develop skills needed on the student to implement a basic well structured application using ReactJS framework with Redux.</p>
+          <h2 id="sec0">Definition of MVC</h2>
+            <div class="row">
+              <div><img src="/img/content1/mvc.png" class="img-responsive center-image"></div>
+            </div>
           <hr>
 
-          <h2 id="sec1">Specific Objectives</h2>
-          <ol>
-            <li>Define Model-View-Controller pattern and how this pattern is applied in an application created with ReactJS and Redux.</li>
-            <li>Identify general functionality from ReactJS in order to create graphical user interfaces.</li>
-            <li>Identify basic characteristics from Redux as an application state container. </li>
-            <li>Build a basic application that solves a particular situation which allows to see advantages from ReactJS and Redux over other JavaScript frameworks. </li>
-          </ol>
+          <h3 id="sec1">Model</h3>
+          <ul>
+            <li>Contains core functionality and data.</li>
+            <li>It has exports procedures that perform application-specific processing.</li>
+            <li>It also provides functions to access its data.</li>
+            <li>The model is independent of specific output representations or input behavior.</li>
+          </ul>
+          <hr>
+
+          <h3 id="sec2">View</h3>
+          <ul>
+            <li>Displays information to the user.</li>
+            <li>This information is obtained from the model.</li>
+            <li>Can be multiple views of the model.</li>
+            <li>Each view has an associated controller.</li>
+            <li>If one view modifies the model this change is shown in every view that uses the same
+              model information (Publisher-Suscriber pattern).</li>
+            <li>Offers functionality that allows controllers to manipulate the display.</li>
+          </ul>
+          <hr>
+
+          <h3 id="sec3">Controller</h3>
+          <ul>
+            <li>Handle user input received from the views as events like mouse movement, mouse buttons
+              or keyboard input.</li>
+            <li>It converts events received into service requests for the model or the view.</li>
+            <li>Controller calls functions defined inside the model to retrieve data.</li>
+            <li>Is created by its specific view during view initialization (1-1 relationship).</li>
+          </ul>
+          <hr>
+
+          <h3>Change-propagation mechanism</h3>
+          <ul>
+            <li>It allows to show most updated data.</li>
+            <li>Maintains a registry of the dependent components within the model.</li>
+            <li>Views and controllers register their need to be informed about changes.</li>
+            <li>Triggered by changes inside the model.</li>
+            <li>Only link between model and views and controllers.</li>
+          </ul>
 
           <hr>
 
-          <h2 id="sec2">Content and Methodology</h2>
-          <p>
-              The course is divided in two stages, in the first one the student is going to learn about the basics
-              of ReactJS and how the Model-View-Controller pattern works with it. Also, the students will learn about
-              how to implement projects in ReactJS with pure javascript and with JSX language.
-          </p>
-
-          <div>
-            <strong>Model-View-Controller:</strong>
-            <ul>
-              <li>Definition of MVC:</li>
-              <ul>
-                <li>Model</li>
-                <li>View</li>
-                <li>Controller</li>
-              </ul>
-              <li>MVC on ReactJS</li>
-            </ul>
-          </div>
-
-          <div>
-            <strong>JSX language basics:</strong>
-            <ul>
-              <li>What is JSX?</li>
-              <li>Pure JavaScript vs JSX language</li>
-              <li>JSX basics</li>
-            </ul>
-          </div>
-
-          <div>
-            <strong>Introduction to ReactJS:</strong>
-            <ul>
-              <li>What is ReactJS?</li>
-              <li>Implementation of ReactJS with pure Javascript vs JSX language</li>
-              <li>Bundle.js file</li>
-              <li>How does ReactJS manipulate DOM?</li>
-              <li>How to start using ReactJS?</li>
-              <li>Functional components</li>
-              <li>Class based components</li>
-              <ul>
-                <li>Component state</li>
-                <li>Constructor function</li>
-                <li>Render function</li>
-              </ul>
-            </ul>
-          </div>
-
-          <p>
-            The second stage of the course is about Redux and how it helps ReactJS to create a complete
-            MVC application. The student will learn how to implement a complete app with these technologies
-            and will learn about some libraries that are useful for this kind of projects.
-          </p>
-
-          <div>
-            <strong>Model-View-Controller:</strong>
-            <ul>
-              <li>Redux layers:</li>
-              <ul>
-                <li>Actions</li>
-                <li>Reducers</li>
-                <li>Store</li>
-              </ul>
-              <li>ReactJS-Redux communication</li>
-            </ul>
-          </div>
-
-          <div>
-            <strong>Introduction to Redux:</strong>
-            <ul>
-              <li>What is Redux?</li>
-              <li>How to start using Redux?</li>
-              <li>From component to container</li>
-              <li>Designing actions and action creators</li>
-              <li>Middlewares inside the store</li>
-              <li>Asynchronous calls with Axios library</li>
-              <li>Creating reducers</li>
-            </ul>
-          </div>
-
-          <div>
-            <strong>Advanced React and Redux topics: </strong>
-            <ul>
-              <li>React Router</li>
-              <li>Redux Form</li>
-            </ul>
-          </div>
+          <h3>MVC benefits</h3>
+          <ul>
+            <li><strong>Multiple views of the same model:</strong> As MVC separates model from interfaces you can divide
+            interfaces according to your needs, no matter you need to use the same model for multiple
+            interfaces.</li>
+            <li><strong>Synchronized views:</strong> Change-propagation mechanism allows the views to be notified about data
+            changes and re-render its content.</li>
+            <li><strong>Pluggable views and controllers:</strong> Conceptual separation of MVC allows you to exchange views
+            and controllers that use the same model, also at runtime.</li>
+            <li><strong>Independency between model and user interface:</strong> You can connect new platforms without affecting
+            the functional core of the application. You only need suitable implementations of views and controllers for each platform.</li>
+            <li><strong>Framework potential:</strong> You can create application frameworks based on this architecture pattern.</li>
+          </ul>
           <hr>
 
-          <h2 id="sec3">Project</h2>
-          <p>
-            The student is going to develop an application using ReactJS and Redux where he needs to use
-            all knowledge he obtained during the course. He is going to create a kind of "Tinder" application
-            where the user can choose what animals he prefer from a list of options the application is going
-            to display. Also the user can manage his choices and administrate what kind of animals he wants
-            to see according to his preferences. The teacher is going to explain all requirements and
-            mockups to guide the development process.
-          </p>
+          <h3>MVC cons</h3>
+          <ul>
+            <li>Increased complexity.</li>
+            <li>Potential for excessive number of updates.</li>
+            <li>Intimate connection between and controller.</li>
+            <li>Close coupling of views and controllers to a model.</li>
+            <li>Inefficiency of data access in view.</li>
+            <li>Inevitability of change to view and controlling when porting.</li>
+          </ul>
           <hr>
+
+          <h2 id="sec4">ReactJS Layers</h2>
+            <p>React was created to fill a specific need for a specific set of technological challenges faced by Facebook.
+              Facebook did not create a full Model-View-Controller architecture to supplant existing frameworks in order to
+              resolve their issues creating complex user interfaces, they created React to deal with displaying data in a user
+              interface, more specific large-scale interfaces with data that changes over time.</p>
+
+            <blockquote>"This MVC structure is actually not a fair assessment of what React is or intends to be. That is
+              because React is one particular piece of what these frameworks present. React is in its simplest form, just
+              the view of these MVC, MVVM, or MV* frameworks."
+            <footer>(Gackenheimer, 2015)<cite></cite></footer>
+            </blockquote>
+          <hr>
+
+          <h2 id="sec5">References</h2>
+            <ul>
+              <li>Buschmann F., Meunier R., Hans R., Sommerlad P. and Stal M. (1996). <i>Pattern-oriented software
+              arquitecture: A system of patterns.</i> Wiley.</li>
+              <li>Gackenheimer C. (2015). <i>Introduction to React.</i> Apress.</li>
+            </ul>
+          <hr>
+
           </div><!--/right-->
     	</div><!--/row-->
   </div><!--/container-->

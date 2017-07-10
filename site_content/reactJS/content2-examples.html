@@ -1,0 +1,491 @@
+<html>
+  <head>
+      <title>Web Development Blog - ReactJS</title>
+      <link rel="stylesheet" href="/style/bootstrap/css/bootstrap.min.css">
+      <link rel="stylesheet" href="/style/customizable_menu.css">
+      <link rel="stylesheet" href="/style/site.css">
+      <script src="/js/jquery-3.2.1.min.js"></script>
+      <script src="/style/bootstrap/js/bootstrap.min.js"></script>
+      <script src="/js/w3.js"></script>
+      <script src="/js/customizable_menu.js"></script>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+<body>
+  <div w3-include-html="/html/menu.html"></div>
+  <script>
+  w3.includeHTML();
+  </script>
+
+  <div id="masthead">
+    <div class="container">
+        <div class="row">
+          <div class="col-md-7">
+            <h1>JSX Examples
+              <p class="lead">Examples for content 2: JSX Language Basics</p>
+            </h1>
+          </div>
+          <div class="col-md-5">
+              <div class="well well-lg">
+                <div class="row">
+                  <div class="col-sm-6">
+                    	<img src="/img/redux_react.png" class="img-responsive">
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div><!--/container-->
+  </div><!--/masthead-->
+
+  <!--main-->
+  <div class="container">
+
+    <ol class="breadcrumb">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/index.html">ReactJS and Redux</a></li>
+      <li><a href="/site_content/reactJS/content2.html">Content 2: JSX Language Basics</a></li>
+      <li class="active">Examples Section</li>
+    </ol>
+
+  	<div class="row">
+        <!--left-->
+        <div class="col-md-3" id="leftCol">
+          <ul class="nav nav-stacked" id="sidebar">
+            <li><a href="#sec0">How to use JSX?</a></li>
+            <li><a href="#sec1">Example 1</a></li>
+            <li><a href="#sec2">Example 2</a></li>
+            <li><a href="#sec3">Example 3</a></li>
+            <li><a href="#sec4">Example 4</a></li>
+            <li><a href="#sec5">Examples applied to ReactJS</a></li>
+            <li><a href="#sec6">- ReactJS Example 1</a></li>
+            <li><a href="#sec7">- ReactJS Example 2</a></li>
+            <li><a href="#sec8">- ReactJS Example 3</a></li>
+            <li><a href="#sec9">- ReactJS Example 4</a></li>
+            <li><a href="#sec10">- ReactJS Example 5</a></li>
+
+          </ul>
+        </div><!--/left-->
+
+        <!--right-->
+        <div class="col-md-9">
+          <h2 id="sec0">How to use JSX?</h2>
+            <p>Execute command <strong>sudo npm install -g jsx</strong> to install JSX in terminal to test examples:</p>
+            <div class="row">
+              <div><img src="/img/content2/terminal.png" class="img-responsive center-image example-image" ></div>
+            </div>
+          <hr>
+
+          <h2 id="sec1">Example 1</h2>
+            <ol>
+              <li>Inside project folder, create file main.jsx with this code:</li><br>
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                        <code>
+                          class _Main {<br>
+                            &nbsp;&nbsp;&nbsp;static function main(args : string[]) : void {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;log "Hello, world!";
+                            <br>&nbsp;&nbsp;&nbsp;}
+                        <br>}
+                        </code>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <li>Run code with command <strong>jsx --run main.jsx</strong>:</li>
+            </ol>
+            <div class="row">
+              <div><img src="/img/content2/example1.png" class="img-responsive center-image example-image"></div>
+            </div>
+          <hr>
+
+          <h2 id="sec2">Example 2</h2>
+            <ol>
+              <li>Inside project folder, create file calculator.jsx with this code:</li><br>
+
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                        <code>
+                          class Calculator {<br>
+                            &nbsp;&nbsp;&nbsp;var num1 = 0;<br>
+                            &nbsp;&nbsp;&nbsp;var num2 = 0;<br>
+
+                            &nbsp;&nbsp;&nbsp;function constructor(x : number, y : number) {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.set(x, y);
+                            <br>&nbsp;&nbsp;&nbsp;}<br>
+
+                            &nbsp;&nbsp;&nbsp;function constructor(other : Calculator) {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.set(other);
+                            <br>&nbsp;&nbsp;&nbsp;}<br>
+
+                            &nbsp;&nbsp;&nbsp;function set(x : number, y : number) : void {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.num1 = x;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.num2 = y;
+                            <br>&nbsp;&nbsp;&nbsp;}<br>
+
+                            &nbsp;&nbsp;&nbsp;function getNum1() : number {<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return this.num1;
+                            <br>&nbsp;&nbsp;&nbsp;}<br>
+
+                            &nbsp;&nbsp;&nbsp;function getNum2() : number {<br>
+                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return this.num2;
+                             <br>&nbsp;&nbsp;&nbsp;}<br>
+
+                             &nbsp;&nbsp;&nbsp;function set(other : Calculator) : void {<br>
+                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.set(other.num1, other.num2);
+                             <br>&nbsp;&nbsp;&nbsp;}<br>
+
+                             &nbsp;&nbsp;&nbsp;function sum() : number{<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return this.num1 + this.num2;
+                             <br>&nbsp;&nbsp;&nbsp;}<br>
+                            }
+                        </code>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <li>Insert in same file this code:</li><br>
+
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                        <code>
+                          class _Main {<br>
+                              &nbsp;&nbsp;&nbsp;static function main(args : string[]) : void {<br>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var calc = new Calculator(5, 10);<br>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log("Calculator with values num1 : " + calc.getNum1() + " , num2 : " + calc.getNum2());<br>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log("Sum result: ", calc.sum());<br>
+                              &nbsp;&nbsp;&nbsp;}<br>
+                          }
+                        </code>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <li>Run example:</li>
+            </ol>
+            <div class="row">
+              <div><img src="/img/content2/example2.png" class="img-responsive center-image example-image"></div>
+            </div>
+          <hr>
+
+          <h2 id="sec3">Example 3</h2>
+            <ol>
+              <li>Inside project folder, create file example.jsx with this code:</li><br>
+
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                        <code>
+                          class Variants{<br>
+                            &nbsp;&nbsp;&nbsp;function guessType(v : variant) : void {<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;if (typeof v == "string") {<br>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log "param is string and the value is: " + v as string;<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;else {<br>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log "param is not string";<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                            &nbsp;&nbsp;&nbsp;}<br>
+                          }
+                        </code>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <li>Insert in same file this code:</li></br>
+
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                        <code>
+                          class _Main {<br>
+                            &nbsp;&nbsp;&nbsp;static function main(args : string[]) : void {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;//test int type<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;var n : int = 5;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;log("int value : " + n);<br>
+                                <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;//test string type<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;var s : string;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;s = "Gaudy";<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;log("String value : " + s);<br>
+                                <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;//test array object<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;var a = new Array.<string>();<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;a[0] = "value1";<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;a[1] = "value2";<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;a[2] = "value3";<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;a.forEach(function(e){<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log("Position in vector : " + e);<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;});<br>
+                                <br>
+                               &nbsp;&nbsp;&nbsp;&nbsp;//test map object<br>
+                               &nbsp;&nbsp;&nbsp;&nbsp;var m = new Map.<number>();<br>
+                               &nbsp;&nbsp;&nbsp;&nbsp;m = {"key": 5};<br>
+                               &nbsp;&nbsp;&nbsp;&nbsp;log("Map value with key : " + m["key"]);<br>
+                               <br>
+                               &nbsp;&nbsp;&nbsp;&nbsp;//test variant type<br>
+                               &nbsp;&nbsp;&nbsp;&nbsp;var variant = new Variants();<br>
+                               &nbsp;&nbsp;&nbsp;&nbsp;log("Sending int n as param...");<br>
+                               &nbsp;&nbsp;&nbsp;&nbsp;variant.guessType(n);<br>
+                               &nbsp;&nbsp;&nbsp;&nbsp;log("Sending string s as param...");<br>
+                               &nbsp;&nbsp;&nbsp;&nbsp;variant.guessType(s);<br>
+                               &nbsp;&nbsp;&nbsp;&nbsp;log("Sending int n as param, casting to string with expression 'as'...");<br>
+                               &nbsp;&nbsp;&nbsp;&nbsp;variant.guessType(n as string);<br>
+                               <br>
+                               &nbsp;&nbsp;&nbsp;&nbsp;//test nullable type<br>
+                               &nbsp;&nbsp;&nbsp;&nbsp;var s2 : Nullable.<string>;<br>
+                               &nbsp;&nbsp;&nbsp;&nbsp;s2 = "Blanco";<br>
+                               &nbsp;&nbsp;&nbsp;&nbsp;log(s2);<br>
+                               &nbsp;&nbsp;&nbsp;&nbsp;s2 = null;<br>
+                               &nbsp;&nbsp;&nbsp;&nbsp;log(s2);<br>
+                              &nbsp;&nbsp;&nbsp;}<br>
+                              }
+                        </code>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <li>Run example:</li>
+            </ol>
+            <div class="row">
+              <div><img src="/img/content2/example3.png" class="img-responsive center-image example-image"></div>
+            </div>
+          <hr>
+
+          <h2 id="sec4">Example 4</h2>
+            <ol>
+              <li>Inside project folder, create file imports.jsx with this code:</li><br>
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                        <code>
+                          import "timer.jsx";<br>
+                          <br>
+                          class _Main {<br>
+                              &nbsp;&nbsp;&nbsp;static function main(args : string[]) : void {<br>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;Timer.setTimeout(function() : void {<br>
+                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log "Hello, world!";<br>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;}, 1000);<br>
+                              &nbsp;&nbsp;&nbsp;}<br>
+                          }
+                        </code>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <li>Run example (it shows a delay in console.log):</li>
+            </ol>
+            <div class="row">
+              <div><img src="/img/content2/example4.png" class="img-responsive center-image example-image"></div>
+            </div>
+          <hr>
+
+          <h2 id="sec5">Examples applied to ReactJS</h2>
+            <ul>
+              <li>JSX is used with React to describe what the UI should look like, because it produces React elements.</li>
+              <li>Some key functionalities of JSX are mostly used on React:</li>
+                <ul>
+                  <li>Embedding JavaScripts expressions</li>
+                  <li>Specifying attributes</li>
+                  <li>Specifying children</li>
+                  <li>Prevent injection attacks</li>
+                  <li>JSX represents objects</li>
+                </ul>
+            </ul>
+          <hr>
+
+          <h3 id="sec6">ReactJS Example 1</h3>
+
+          <h4>Embedding JavaScripts expressions</h4>
+          <div class="row">
+            <div class="col-md-8">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                    <code>
+                      const user = {<br>
+                        &nbsp;&nbsp;&nbsp;firstName: 'Gaudy',<br>
+                        &nbsp;&nbsp;&nbsp;lastName: 'Blanco'<br>
+                      };<br>
+                      <br>
+                      const element = (<br>
+                        &nbsp;&nbsp;&nbsp;&lt;h1&gt;<br>
+                        &nbsp;&nbsp;&nbsp;Hello, {user.firstName}!<br>
+                        &nbsp;&nbsp;&nbsp;&lt;/h1&gt;
+                      );<br>
+                      <br>
+                      ReactDOM.render(<br>
+                        &nbsp;&nbsp;&nbsp;element,<br>
+                        &nbsp;&nbsp;&nbsp;document.getElementById('root')<br>
+                      );
+                    </code>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+
+          <h3 id="sec7">ReactJS Example 2</h3>
+
+          <h4>Specifying attributes</h4>
+          <p>You can set html attributes using JSX values.</p>
+          <div class="row">
+            <div class="col-md-8">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                    <code>
+                      const user = {<br>
+                        &nbsp;&nbsp;&nbsp;firstName: 'Gaudy',<br>
+                        &nbsp;&nbsp;&nbsp;lastName: 'Blanco'<br>
+                      };<br>
+                      <br>
+                      const element = (<br>
+                        &nbsp;&nbsp;&nbsp;&lt;h1&gt;<br>
+                        &nbsp;&nbsp;&nbsp;Hello, {user.firstName}!<br>
+                        &nbsp;&nbsp;&nbsp;&lt;/h1&gt;
+                      );<br>
+                      <br>
+                      ReactDOM.render(<br>
+                        &nbsp;&nbsp;&nbsp;element,<br>
+                        &nbsp;&nbsp;&nbsp;document.getElementById('root')<br>
+                      );
+                      const user = {<br>
+                      	&nbsp;&nbsp;&nbsp;name = 'Gaudy',<br>
+                      	&nbsp;&nbsp;&nbsp;avatarUrl = '/img/photo1.img'<br>
+                      }<br>
+                      <br>
+                      const element = &lt;img src={user.avatarUrl}&gt;&lt;/img&gt;;
+                    </code>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+
+          <h3 id="sec8">ReactJS Example 3</h3>
+
+          <h4>Specifying children</h4>
+          <ul>
+            <li>Some JS keywords aren't allowed on JSX html tags:</li>
+            <ul>
+              <li>class -> className</li>
+              <li>tabindex -> tabIndex</li>
+              <li>ReactDOM uses camelCase for these conflicts.</li>
+            </ul>
+          </ul>
+          <div class="row">
+            <div class="col-md-8">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                    <code>
+                      const element = (<br>
+                      &nbsp;&nbsp;&nbsp;&lt;div className="container"&gt;<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&lt;h1>Hello!&lt;/h1&gt;<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Good to see you here.&lt;/h2&gt;<br>
+                      &nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+                    );
+                    </code>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+
+          <h3 id="sec9">ReactJS Example 4</h3>
+
+          <h4>Prevent injection attacks </h4>
+          <ul>
+            <li>Embed user input on JSX, ensures you never inject anything that's not explicity written on your application.</li>
+          </ul>
+          <div class="row">
+            <div class="col-md-8">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                    <code>
+                      const title = response.potentiallyMaliciousInput;<br>
+                      // This is safe:<br>
+                      const element = &lt;h1&gt;{title}&lt;/h1&gt;;
+
+                    </code>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+
+          <h3 id="sec10">ReactJS Example 5</h3>
+
+          <h4>JSX represents objects</h4>
+          <ul>
+            <li>Embed user input on JSX, ensures you never inject anything that's not explicity written on your application.</li>
+          </ul>
+          <br>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="panel panel-default">
+                <div class="panel-heading"><strong>JSX Syntax</strong></div>
+                <div class="panel-body">
+                    <code>
+                      const element = (<br>
+                        &nbsp;&nbsp;&nbsp;&lt;h1 className="greeting"&gt;<br>
+                          &nbsp;&nbsp;&nbsp;Hello, world!<br>
+                        &nbsp;&nbsp;&nbsp;&lt;/h1&gt;<br>
+                      );
+                    </code>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="panel panel-default">
+                <div class="panel-heading"><strong>Pure JS Syntax</strong></div>
+                <div class="panel-body">
+                  <code>
+                    const element = React.createElement(<br>
+                      &nbsp;&nbsp;&nbsp;'h1',<br>
+                      &nbsp;&nbsp;&nbsp;{className: 'greeting'},<br>
+                      &nbsp;&nbsp;&nbsp;'Hello, world!'<br>
+                    );
+
+                  </code>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p> These codes produce the same object:</p>
+          <div class="row">
+            <div class="col-md-8">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                    <code>
+                      // Note: this structure is simplified<br>
+                      const element = {<br>
+                        &nbsp;&nbsp;&nbsp;type: 'h1',<br>
+                        &nbsp;&nbsp;&nbsp;props: {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  className: 'greeting',<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  children: 'Hello, world'<br>
+                        &nbsp;&nbsp;&nbsp;}<br>
+                      };
+                    </code>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr>
+
+          </div><!--/right-->
+    	</div><!--/row-->
+  </div><!--/container-->
+</body>
+</html>

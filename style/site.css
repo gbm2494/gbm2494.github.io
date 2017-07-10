@@ -2,3 +2,11 @@
   margin : 0 auto;
   padding-top:1em;
 }
+
+.image-footer{
+  text-align: center;
+}
+
+.example-image{
+  width : 70%;
+}

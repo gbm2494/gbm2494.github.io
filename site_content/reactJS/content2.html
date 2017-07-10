@@ -1,0 +1,415 @@
+<html>
+  <head>
+      <title>Web Development Blog - ReactJS</title>
+      <link rel="stylesheet" href="/style/bootstrap/css/bootstrap.min.css">
+      <link rel="stylesheet" href="/style/customizable_menu.css">
+      <link rel="stylesheet" href="/style/site.css">
+      <script src="/js/jquery-3.2.1.min.js"></script>
+      <script src="/style/bootstrap/js/bootstrap.min.js"></script>
+      <script src="/js/w3.js"></script>
+      <script src="/js/customizable_menu.js"></script>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+<body>
+  <div w3-include-html="/html/menu.html"></div>
+  <script>
+  w3.includeHTML();
+  </script>
+
+  <div id="masthead">
+    <div class="container">
+        <div class="row">
+          <div class="col-md-7">
+            <h1>JSX Language Basics
+              <p class="lead">Content 2 for ReactJS and Redux Course</p>
+            </h1>
+          </div>
+          <div class="col-md-5">
+              <div class="well well-lg">
+                <div class="row">
+                  <div class="col-sm-6">
+                    	<img src="/img/redux_react.png" class="img-responsive">
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div><!--/container-->
+  </div><!--/masthead-->
+
+  <!--main-->
+  <div class="container">
+
+    <ol class="breadcrumb">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/index.html">ReactJS and Redux</a></li>
+      <li class="active">Content 2: JSX Language Basics</li>
+    </ol>
+
+  	<div class="row">
+        <!--left-->
+        <div class="col-md-3" id="leftCol">
+          <ul class="nav nav-stacked" id="sidebar">
+            <li><a href="#sec0">What is JSX?</a></li>
+            <li><a href="#sec1">Pure JavaScript vs JSX Language</a></li>
+            <li><a href="#sec2">JSX Basics</a></li>
+            <li><a href="#sec3">References</a></li>
+            <li><a href="/site_content/reactJS/content2-examples.html">Examples Section</a></li>
+          </ul>
+        </div><!--/left-->
+
+        <!--right-->
+        <div class="col-md-9">
+          <h2 id="sec0">What is JSX?</h2>
+
+          <blockquote>"JSX is a statically-typed, object-oriented programming language designed to run on modern web
+            browsers. Being developed at DeNA as a research project, the language has following characteristics."
+          <footer>(DeNA, 2012)<cite></cite></footer>
+          </blockquote>
+          <hr>
+
+          <h3>JSX characteristics</h3>
+          <strong>Faster:</strong>
+          <blockquote>"JSX performs optimization while compiling the source code to JavaScript. The generated code
+            runs faster than an equivalent code written directly in JavaScript. The gain may vary, but even the
+            optimized JavaScript libraries like Box2D becomes faster when ported to JSX (12% faster on iOS 5.1,
+            29% faster on Android 2.3)."
+          <footer>(DeNA, 2012)<cite></cite></footer>
+          </blockquote>
+
+          <strong>Safer:</strong>
+          <blockquote>"In contrast to JavaScript, JSX is statically-typed and mostly type-safe. The quality of
+            applications becomes higher when being developed using JSX, since many errors will be caught during
+            the compilation process. It also offers debugging features at the compiler level as well."
+          <footer>(DeNA, 2012)<cite></cite></footer>
+          </blockquote>
+
+          <strong>Easier:</strong>
+          <blockquote>"JSX offers a solid class system much like Java, freeing the developers from working with
+            the too-primitive prototype-based inheritance system provided by JavaScript. Expressions and statements,
+            however, are mostly equal to JavaScript, so it is easy for JavaScript programmers to start using JSX."
+          <footer>(DeNA, 2012)<cite></cite></footer>
+          </blockquote>
+          <hr>
+
+          <h2 id="sec1">Pure JavaScript vs JSX Language</h2>
+
+          <h3>JavaScript pros</h3>
+          <ul>
+            <li>Clear language design with specification.</li>
+            <li>Works on any browser.</li>
+            <li>Very fast.</li>
+            <li>Small and primitive language specification.</li>
+          </ul>
+
+          <h3>JavaScript problems</h3>
+          <ul>
+            <li>Low productivity</li>
+            <ul>
+              <li>Specially in medium to large-scale environments.</li>
+              <li>Require skills to write fast and maintainable code.</li>
+              <li>Cannot find bugs before execution.</li>
+              <li>Hard to share best practices because great variety in coding style.</li>
+              <li>Hard to write high-quality code. </li>
+            </ul>
+            <li>Slow execution speed</li>
+            <ul>
+                <li>Compared with native.</li>
+            </ul>
+            <li>High memory-consuming</li>
+            <li>Slow startup</li>
+          </ul>
+
+          <h3>Reasons for JavaScript problems</h3>
+          <ul>
+            <li>Error checking only at runtime because it is a dynamic language.</li>
+            <ul>
+                <li>This aspect impacts on productivity and quality.</li>
+            </ul>
+            <li>Adaptive compilation</li>
+            <ul>
+                <li>Negative impact on:</li>
+                <ul>
+                    <li>Execution speed</li>
+                    <li>Startup speed</li>
+                    <li>Memory footprint</li>
+                </ul>
+            </ul>
+            <li>No heavy compiler optimizations</li>
+            <ul>
+                <li>JS JIT engines have optimizations but with limits/overheads.</li>
+                <li>This reason also affects execution speed.</li>
+            </ul>
+          </ul>
+
+          <h3>How JSX resolves JavaScript problems?</h3>
+          <ul>
+            <li>A strictly-typed OO programming language</li>
+            <li>Convertible to JavaScript</li>
+            <ul>
+                <li>Runs faster than JavaScript on web browsers.</li>
+                <li>Generated code is faster by optimizing it using type-info.</li>
+                <li>JSX is designed so that there would be no overhead when compiled to JavaScript.</li>
+            </ul>
+            <li>Strict types lead to higher productivity / better quality than JavaScript</li>
+            <li>Interoperable with JavaScript</li>
+            <li>Generates source-map for debugging: technology that
+              allows to debug server side code on web browsers written in languages other than Javascript.</li>
+            <li>Help writing high-quality code than in JavaScript.</li>
+          </ul>
+
+          <hr>
+
+          <h2 id="sec2">JSX Basics</h2>
+
+          <h3>Primitive types (non-nullable)</h3>
+            <ul>
+              <li>Boolean</li>
+              <li>Number</li>
+              <li>String</li>
+              <li>Int (variables of this type are only generated when type is specified explicitly, reason: slow speed).
+                Examples:</li>
+                <code>var n = 1; 	//defines a variable n of type number</code><br>
+                <code>var i : int = 1; 	//defines a variable of type int</code>
+            </ul>
+
+          <h3>Nullable primitive types</h3>
+              <ul>
+                <li>Nullable.&lt;boolean&gt;</li>
+                <li>Nullable.&lt;number&gt;</li>
+                <li>Nullable.&lt;string&gt;</li>
+                <li>Nullable.&lt;int&gt;</li>
+              </ul>
+
+          <h3>Variant type</h3>
+              <ul>
+                <li>Same value as in Javascript (var).</li>
+                <li>Cast to another type if necessary.</li>
+              </ul>
+
+          <h3>Build-in Object Types</h3>
+              <ul>
+                <li>Object</li>
+                <li>Array.&lt;T&gt;</li>
+                  <code>new Array.&lt;number&gt;; //empty array</code><br>
+                  <code>new Array.&lt;number&gt;(length); //empty array of length elements</code><br>
+                  <code>[ ] : Array.&lt;boolean&gt;; 	//empty array</code><br>
+                  <code>[1, 2, 3]; 	//array with 3 elements</code><br>
+                <li>Map.&lt;T&gt;</li>
+                  <ul>
+                    <li>Can be created using new operator or map initialiser.</li>
+                    <code>New Map.&lt;number&gt;; equals to { } : Map.&lt;number&gt;; //always string key</code>
+                  </ul>
+                <li>Boolean, Number, String as objects but is preferable to use primitive types for performance and debugging reasons.</li>
+              </ul>
+
+          <h3>Literals</h3>
+              <ul>
+                <li>Keyword literals: null (there is no undefined value as in JS), false and true.</li>
+                <li>Number:</li>
+                  <code>var a = 10; </code>
+                <li>String:</li>
+                  <code>var a = "foo\n";</code>
+                <li>RegExp:</li>
+                  <code>var a = /[a-zA-Z0-9]+/;</code>
+                <li>Function (param and return types are required, unless the type can be deducted):</li>
+                <br>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="panel panel-default">
+                      <div class="panel-heading"><strong>Return type required</strong></div>
+                      <div class="panel-body">
+                          <code>
+                            var g = function (n : number) : number {
+                                return n + 1;<br>
+                            };
+                          </code>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="panel panel-default">
+                      <div class="panel-heading"><strong>Return type not required</strong></div>
+                      <div class="panel-body">
+                        <code>
+                          var sum = 0;
+                          [ 1, 2, 3 ].forEach(function (e) {
+                              <br>sum += e;<br>
+                          });
+                          <br>log sum; // 6
+                        </code>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <li>Array:</li>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="panel panel-default">
+                      <div class="panel-heading"><strong>Explicit type required</strong></div>
+                      <div class="panel-body">
+                          <code>
+                            // empty array literals require an explicit type <br>
+                            var a = [] : string[];
+                          </code>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="panel panel-default">
+                      <div class="panel-heading"><strong>Explicit type not required</strong></div>
+                      <div class="panel-body">
+                        <code>
+                          // the type is clear; you can omit type declaration <br>
+                          var b : string[] = [];
+                        </code>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <li>Map:</li>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="panel panel-default">
+                      <div class="panel-heading"><strong>Explicit type required</strong></div>
+                      <div class="panel-body">
+                          <code>
+                            // empty map literals require an explicit type
+                            var a = {} : Map.&lt;string&gt;;
+                          </code>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="panel panel-default">
+                      <div class="panel-heading"><strong>Explicit type not required</strong></div>
+                      <div class="panel-body">
+                        <code>
+                          // the type is clear; you can omit type declaration
+                          var b : Map.&lt;string&gt; = {};
+                        </code>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ul>
+
+          <h3>Operators</h3>
+          <p>Same as JavaScript except following changes:</p>
+              <ul>
+                <li>Type of the operands accepted by operators are more restrictive.</li>
+                <li>Logical operators return boolean.</li>
+                <li>Binary ?.</li>
+                <li>Introduction of <strong>as</strong> operator.</li>
+                <li><strong>Delete</strong> as statement instead of operator.</li>
+              </ul>
+              <p>Complete reference in <a href="https://jsx.github.io/doc/operatorref.html">JSX Operator Reference Oficial Site</a></p>
+
+          <h3>Type Conversion</h3>
+          <p>Same as JavaScript except following changes:</p>
+              <ul>
+                <li>As operator: conversion between primitive types (including nullable and variant).</li>
+                <li>If the source type is a nullable type and if the value is null, a runtime exception is raised
+                under debug builds. In release builds the behavior is unspecified. </li>
+                <li>Conversion of variant type depends on the result of typeof operator applied.</li>
+              </ul>
+              <p>Complete reference in <a href="https://jsx.github.io/doc/conversionref.html">JSX Conversion Reference Oficial Site</a></p>
+          <hr>
+
+          <h3>Classes and Interfaces</h3>
+          <ul>
+            <li>Class attributes: abstract and final:</li>
+            <br>
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                        <code>
+                          class Human {<br>
+                            &nbsp;&nbsp;&nbsp;var _name : string;
+                            <br>&nbsp;&nbsp;&nbsp;function constructor(name : string) {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;this._name = name;
+                            <br>&nbsp;&nbsp;&nbsp;}
+                            <br>&nbsp;&nbsp;&nbsp;function say() : void {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;log "My name is " + this._name;
+                            <br>&nbsp;&nbsp;&nbsp;}
+                        <br>}
+                        </code>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <li>Member functions:</li>
+              <div class="row">
+                <div><img src="/img/content2/memberFunctions.png" class="img-responsive center-image" style="width:70%;"></div>
+              </div>
+              <p class="image-footer">Attributes for member functions (DeNA, 2012).</p>
+
+            <li>Member variables:</li>
+              <div class="row">
+                <div><img src="/img/content2/memberVariables.png" class="img-responsive center-image" style="width:70%;"></div>
+              </div>
+              <p class="image-footer">Attributes for member variables (DeNA, 2012).</p>
+              <p>Examples:</p>
+              <code>
+                // ordinary variable, type and expression are optional<br>
+                attribute* var varname [: type][ = expression];<br>
+                <br>
+                // constant type is optional, expression is mandatory<br>
+                static const CONSTNAME [: type] = expression;
+              </code>
+            <br><br>
+            <li>Member variables and functions can be called with "." notation for variables of class type or class name
+              (abstract classes), or with this. </li>
+            <li>Interfaces are similar to Java, but they have abstract variables. All the non-static functions are implicitly
+               marked as abstract, and they cannot have bodies. An interface may implement other interfaces.</li>
+
+          </ul>
+
+          <h3>Imported Files</h3>
+              <ul>
+                <li>You can refer to classes defined in other source files with import statement.</li>
+                <li>You have to import all files before first class, interface or mixin inside the file.</li>
+              </ul>
+
+              <p>Examples:</p>
+              <code>
+                // import all classes that do not start with "_" from "a.jsx"<br>
+                import "a.jsx";<br>
+                <br>
+                // import two classes C1 and _Internal from "a.jsx"<br>
+                import C1, _Internal from "a.jsx";<br>
+                <br>
+                // import all classes that do not start with "_" under prefix A<br>
+                import "a.jsx" into A; // class C1 of a.jsx can be referred to as: A.C1<br>
+                <br>
+                // import all files under directory "sub"<br>
+                import "sub/*.jsx";<br>
+              </code>
+          <hr>
+
+          <h2 id="sec3">References</h2>
+            <ul>
+              <li>DeNA (2012). <i>JSX a faster, safer, easier JavaScript.</i> Recover from https://jsx.github.io/</li>
+              <li>DeNA (2012). <i>JSX Classes, Interfaces and Mixins.</i> Recover from https://jsx.github.io/doc/classref.html</li>
+              <li>DeNA (2012). <i>JSX Literals.</i> Recover from https://jsx.github.io/doc/literalref.html</li>
+              <li>DeNA (2012). <i>JSX Statements.</i> Recover from https://jsx.github.io/doc/statementref.html</li>
+              <li>DeNA (2012). <i>JSX Operators.</i> Recover from https://jsx.github.io/doc/operatorref.html</li>
+              <li>DeNA (2012). <i>JSX Type Conversion.</i> Recover from https://jsx.github.io/doc/conversionref.html</li>
+              <li>DeNA (2012). <i>JSX Types.</i> Recover from https://jsx.github.io/doc/typeref.html</li>
+              <li>DeNA (2012). <i>JSX Tutorial.</i> Recover from https://jsx.github.io/doc/tutorial.html</li>
+              <li>Facebook Open Source (2017). <i>Introducing JSX.</i> Recover from https://facebook.github.io/react/docs/introducing-jsx.html</li>
+              <li>Oku K. (2012). <i>JSX.</i> SlideShare.net. Recover from https://www.slideshare.net/kazuho/jsx</li>
+              <li>Oku k. (2013). <i>JSX - developing a statically-typed programming language for the Web.</i> SlideShare.net. Recover from https://www.slideshare.net/kazuho/jsx20130608pptx</li>
+            </ul>
+          <hr>
+
+          </div><!--/right-->
+    	</div><!--/row-->
+  </div><!--/container-->
+</body>
+</html>

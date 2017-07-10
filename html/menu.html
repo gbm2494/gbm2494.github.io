@@ -1,22 +1,30 @@
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
+<nav class="navbar navbar-default navbar-fixed-top" role="banner">
+  <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/index.html">Web Development Blog</a>
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/index.html" class="navbar-brand">Web Development Blog</a>
     </div>
-    <ul class="nav navbar-nav">
-      <li><a href="/index.html">Home</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">ReactJS <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="/page_content/reactJS/index.html">Course general information</a></li>
-          <li><a href="#">Content 1: Model-View-Controller</a></li>
-          <li><a href="#">Content 2: JSX language basics</a></li>
-          <li><a href="#">Content 3: Introduction to ReactJS</a></li>
-          <li><a href="#">Content 4: Model-View-Controller</a></li>
-          <li><a href="#">Content 5: Introduction to Redux</a></li>
-          <li><a href="#">Content 6: Advanced ReactJS and Redux topics</a></li>
-          <li><a href="#">Content 7: Final Project</a></li>
-        </ul>
-      </li>
-    </ul>
+    <nav class="collapse navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li><a href="/index.html">Home</a></li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">ReactJS and Redux <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/site_content/reactJS/index.html">Course general information</a></li>
+            <li><a href="/site_content/reactJS/content1.html">Content 1: Model-View-Controller</a></li>
+            <li><a href="#">Content 2: JSX language basics</a></li>
+            <li><a href="#">Content 3: Introduction to ReactJS</a></li>
+            <li><a href="#">Content 4: Model-View-Controller</a></li>
+            <li><a href="#">Content 5: Introduction to Redux</a></li>
+            <li><a href="#">Content 6: Advanced ReactJS and Redux topics</a></li>
+            <li><a href="#">Content 7: Final Project</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
   </div>
 </nav>

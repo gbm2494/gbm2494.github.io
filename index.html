@@ -1,18 +1,41 @@
 <html>
-  <head>
-      <title>Blog de desarrollo web</title>
-      <link rel="stylesheet" href="/style/bootstrap/css/bootstrap.min.css">
-      <script src="/js/jquery-3.2.1.min.js"></script>
-      <script src="/style/bootstrap/js/bootstrap.min.js"></script>
-      <script src="/js/w3.js"></script>
-  </head>
-  <body>
-      <div w3-include-html="/html/menu.html"></div>
-      <script>
-      w3.includeHTML();
-      </script>
-      <div class="container">
-          Hello
-      </div>
-  </body>
+<head>
+    <title>Web Development Blog</title>
+    <link rel="stylesheet" href="/style/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/style/customizable_menu.css">
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/style/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/js/w3.js"></script>
+    <script src="/js/customizable_menu.js"></script>
+</head>
+<body>
+  <div w3-include-html="/html/menu.html"></div>
+  <script>
+  w3.includeHTML();
+  </script>
+
+  <div id="masthead">
+    <div class="container">
+        <div class="row">
+          <div class="col-md-7">
+            <h1>Gaudy Blanco Meneses
+              <p class="lead">Software Engineer</p>
+            </h1>
+          </div>
+          <div class="col-md-5">
+              <div class="well well-lg">
+                <div class="row">
+                  <div class="col-sm-6">
+                    	<img src="//placehold.it/180x100" class="img-responsive">
+                  </div>
+                  <div class="col-sm-6">
+  	              	Some text here
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div><!--/container-->
+  </div><!--/masthead-->
+</body>
 </html>

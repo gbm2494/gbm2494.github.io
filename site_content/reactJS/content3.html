@@ -1,0 +1,536 @@
+<html>
+  <head>
+      <title>Web Development Blog - ReactJS</title>
+      <link rel="stylesheet" href="/style/bootstrap/css/bootstrap.min.css">
+      <link rel="stylesheet" href="/style/customizable_menu.css">
+      <link rel="stylesheet" href="/style/site.css">
+      <script src="/js/jquery-3.2.1.min.js"></script>
+      <script src="/style/bootstrap/js/bootstrap.min.js"></script>
+      <script src="/js/w3.js"></script>
+      <script src="/js/customizable_menu.js"></script>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+<body>
+  <div w3-include-html="/html/menu.html"></div>
+  <script>
+  w3.includeHTML();
+  </script>
+
+  <div id="masthead">
+    <div class="container">
+        <div class="row">
+          <div class="col-md-7">
+            <h1>Introduction to ReactJS
+              <p class="lead">Content 3 for ReactJS and Redux Course</p>
+            </h1>
+          </div>
+          <div class="col-md-5">
+              <div class="well well-lg">
+                <div class="row">
+                  <div class="col-sm-6">
+                    	<img src="/img/redux_react.png" class="img-responsive">
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div><!--/container-->
+  </div><!--/masthead-->
+
+  <!--main-->
+  <div class="container">
+
+    <ol class="breadcrumb">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/index.html">ReactJS and Redux</a></li>
+      <li class="active">Content 3: Introduction to ReactJS</li>
+    </ol>
+
+  	<div class="row">
+        <!--left-->
+        <div class="col-md-3" id="leftCol">
+          <ul class="nav nav-stacked" id="sidebar">
+            <li><a href="#sec0">What is ReactJS?</a></li>
+            <li><a href="#sec1">Implementation of ReactJS with pure Javascript vs JSX language</a></li>
+            <li><a href="#sec2">Bundle.js file</a></li>
+            <li><a href="#sec3">How does ReactJS manipulate DOM?</a></li>
+            <li><a href="#sec4">How to start using ReactJS?</a></li>
+            <li><a href="#sec5">Functional components</a></li>
+            <li><a href="#sec6">Class based components</a></li>
+            <li><a href="#sec7">References</a></li>
+            <li><a href="/site_content/reactJS/content3-examples.html">Examples Section</a></li>
+          </ul>
+        </div><!--/left-->
+
+        <!--right-->
+        <div class="col-md-9">
+          <h2 id="sec0">What is ReactJS?</h2>
+
+          <blockquote>"JavaScript library for building user interfaces."
+          <footer>(Facebook Open Source, 2017)<cite></cite></footer>
+          </blockquote>
+
+          <blockquote>"React is a javascript library that produces html that is shown to user in the browser.
+            We write components or views (snippets of code that produce html). We write multiple different components
+             to create applications relative simple."
+          <footer>(Grider, 2017)<cite></cite></footer>
+          </blockquote>
+
+          <blockquote>"React was built to deal with displaying data in a user interface. The difference is that React
+            was created to serve large-scale user interfaces—Facebook and Instagram scale interfaces—with data that
+            changes over time."
+          <footer>(Gackenheimer, 2015)<cite></cite></footer>
+          </blockquote>
+
+          <h3>ReactJS Characteristics</h3>
+          <strong>Declarative:</strong>
+          <blockquote>"Build encapsulated components that manage their own state, then compose them to make complex UIs.
+            Since component logic is written in JavaScript instead of templates, you can easily pass rich data through
+            your app and keep state out of the DOM."
+          <footer>(Facebook Open Source, 2017)<cite></cite></footer>
+          </blockquote>
+
+          <strong>Component-Based:</strong>
+          <blockquote>"React makes it painless to create interactive UIs. Design simple views for each state in your
+            application, and React will efficiently update and render just the right components when your data changes.
+            Declarative views make your code more predictable and easier to debug."
+          <footer>(Facebook Open Source, 2017)<cite></cite></footer>
+          </blockquote>
+
+          <strong>Learn Once, Write Anywhere:</strong>
+          <blockquote>"We don't make assumptions about the rest of your technology stack, so you can develop new features
+            in React without rewriting existing code. React can also render on the server using Node and power mobile apps
+            using React Native."
+          <footer>(Facebook Open Source, 2017)<cite></cite></footer>
+          </blockquote>
+
+          <h3>ReactJS Purpose</h3>
+          <p>Resolve issues with user interfaces that are:</p>
+          <ul>
+            <li>Fragile</li>
+            <li>Highly interconnected</li>
+            <li>Not easily maintainable</li>
+          </ul>
+          <hr>
+
+          <h2 id="sec1">Implementation of ReactJS with pure Javascript vs JSX language</h2>
+
+          <h3>Do I have to use JSX?</h3>
+          <ul>
+            <li>JSX is not requirement for using React, is just a syntactic handler for
+              calling React.createElement(component, props, ...children).</li>
+            <li>Anything done with JSX can be done with pure JavaScript.</li>
+          </ul>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="panel panel-default">
+                <div class="panel-heading"><strong>With JSX</strong></div>
+                <div class="panel-body">
+                    <code>
+                      class Hello extends React.Component {<br>
+                        &nbsp;&nbsp;&nbsp;render() {<br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;return &lt;div&gt;Hello {this.props.toWhat}&lt;/div&gt;;<br>
+                        &nbsp;&nbsp;&nbsp;}<br>
+                      }<br>
+                      <br>
+                      ReactDOM.render(<br>
+                        &nbsp;&nbsp;&nbsp;&lt;Hello toWhat="World" /&gt;,<br>
+                        &nbsp;&nbsp;&nbsp;document.getElementById('root')<br>
+                      );
+                    </code>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="panel panel-default">
+                <div class="panel-heading"><strong>Without JSX</strong></div>
+                <div class="panel-body">
+                  <code>
+                    class Hello extends React.Component {<br>
+                      &nbsp;&nbsp;&nbsp;render() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;return React.createElement('div', null, `Hello ${this.props.toWhat}`);<br>
+                      &nbsp;&nbsp;&nbsp;}<br>
+                    }<br>
+                    <br>
+                    ReactDOM.render(<br>
+                      &nbsp;&nbsp;&nbsp;React.createElement(Hello, {toWhat: 'World'}, null),<br>
+                      &nbsp;&nbsp;&nbsp;document.getElementById('root')<br>
+                    );
+                  </code>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3>Why JSX instead of JS?</h3>
+          <ul>
+            <li>JSX has a familiar look and feel for developers and designers.</li>
+            <li>JSX is HTML-like, in its structure. It allows to structure your React code as you would structure your HTML.</li>
+            <li>JSX brings a less verbose way of doing the same JS, so it converts everything to maintainable React JavaScript.</li>
+            <li>JSX defines a concise and familiar syntax for defining tree structures and attributes.</li>
+            <li>JSX is more readable and accessible to anyone familiar with XML syntax and hierarchy.</li>
+          </ul>
+          <hr>
+
+          <h2 id="sec2">Bundle.js file</h2>
+
+          <h3>What is bundle.js file?</h3>
+            <p>ReactJS implements some JavaScript code defined on ECMAScript6 (specification standardized for JS), but as a
+              new version no browser can't run directly this kind of code. Also, JSX can't run directly in the browser, so
+              for that reason, React needs to use a tooling or transpile tool that can transform the code to renderable code
+              on browser. Some libraries like webpack and babel produces this executable code on a file called bundle.js.
+            </p>
+
+
+          <h2 id="sec3">How does ReactJS manipulate DOM?</h2>
+
+          <h3>Virtual DOM</h3>
+          <li>Rebuilt the interface each time the data changed or the user interacted with the application.</li>
+          <li>Facebook set out to change the framework from that of a set of DOM mutations each time the data changed,
+            to what it called reconciliation.</li>
+          <li>Facebook did this by creating a virtual DOM that they use each time they encounter an update to calculate
+            the minimum set of changes needed to update the application’s actual DOM.</li>
+
+          <div class="row">
+            <div><img src="/img/content3/virtualdom.png" class="img-responsive center-image example-image"></div>
+          </div>
+          <p class="image-footer">How virtual DOM works on React (Li, 2015).</p>
+          <hr>
+
+          <h2 id="sec4">How to start using ReactJS?</h2>
+
+          <h3>Environment</h3>
+          <ul>
+            <li>You can start playing with React using a <a href="http://jsfiddle.net/reactjs/69z2wepo/">JSFiddle</a></li>
+            <li>You can use configuration on github repository <a href="https://github.com/gbm2494/ReduxSimpleStarter">ReduxSimpleStarter</a></li>
+            <li>You can create your own environment using libraries like babel
+              and webpack, as in this tutorial
+              <a href="https://www.twilio.com/blog/2015/08/setting-up-react-for-es6-with-webpack-and-babel-2.html">Setting up
+              react for es6 with webpack and babel 2</a></li>
+          </ul>
+
+          <p>For the course I am going to use github repository configuration on
+            <a href="https://github.com/gbm2494/ReduxSimpleStarter">ReduxSimpleStarter</a>
+          </p>
+
+          <div class="row">
+            <div><img src="/img/content3/folder.png" class="img-responsive center-image other-image"></div>
+          </div>
+
+          <h3>Basic aspects</h3>
+          <ul>
+            <li>All apps on React have an index.html which imports bundle.js script (
+            this file is generated with the setup configuration the project already has).</li>
+            <li>If you check file index.html you see this code:</li>
+          </ul>
+
+          <div class="row">
+            <div><img src="/img/content3/index-html.png" class="img-responsive center-image example-image"></div>
+          </div>
+
+          <br>
+
+          <ul>
+            <li>The only different thing from a normal html project is the script bundle.js.</li>
+            <li>If you see index.js inside src folder you see this code:</li>
+          </ul>
+
+          <div class="row">
+            <div><img src="/img/content3/index-js.png" class="img-responsive center-image example-image"></div>
+          </div>
+
+          <br>
+
+          <ul>
+            <li>You can delete some parts of the code that we are not going to use now:</li>
+          </ul>
+
+          <div class="row">
+            <div><img src="/img/content3/index-js2.png" class="img-responsive center-image example-image"></div>
+          </div>
+
+          <br>
+
+          <ul>
+            <li>If you check app.js inside components folder you see this code:</li>
+          </ul>
+
+          <div class="row">
+            <div><img src="/img/content3/app-js.png" class="img-responsive center-image example-image"></div>
+          </div>
+
+          <br>
+
+          <ul>
+            <li>To run this example you need to execute command <strong>npm install</strong> on terminal
+              (just first time you use this project).</li>
+            <li>To see html run npm start:</li>
+          </ul>
+
+          <div class="row">
+            <div><img src="/img/content3/npmstart.png" class="img-responsive center-image example-image"></div>
+          </div>
+
+          <br>
+
+          <ul>
+            <li>Go to http://localhost:8080/ and see your html:</li>
+          </ul>
+
+          <div class="row">
+            <div><img src="/img/content3/localhost.png" class="img-responsive center-image example-image"></div>
+          </div>
+
+          <h3>How does React work?</h3>
+
+          <div class="row">
+            <div><img src="/img/content3/react-works.png" class="img-responsive center-image"></div>
+          </div>
+
+          <br>
+
+          <ul>
+            <li>React works by importing components (pieces of html) inside other components.</li>
+            <li>ReactDOM.render(&lt;App/&gt;, document.querySelector('.container'));</li>
+            <ul>
+              <li>Takes the component you want to render on browser (&lt;App/&gt;).</li>
+              <li>Select the selector you want to add this component.</li>
+              <li>Render on browser.</li>
+          </ul>
+          </ul>
+
+          <hr>
+
+          <h2 id="sec5">Functional components</h2>
+
+          <ul>
+            <li>Function that returns a piece of HTML code.</li>
+            <li>Does not have internal record keeping.</li>
+          </ul>
+
+          <h3>Functional component syntax</h3>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                    <code>
+                      function nameComponent(props){<br>
+                        &nbsp;&nbsp;&nbsp;return(<br>
+                        	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JSX code<br>
+                        &nbsp;&nbsp;&nbsp;);<br>
+                      }
+                    </code>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <code>
+                    const nameComponent = function(props){<br>
+                    	&nbsp;&nbsp;&nbsp;return(<br>
+                    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JSX code<br>
+                      &nbsp;&nbsp;&nbsp;);<br>
+                    }
+                  </code>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <code>
+                    const nameComponent = (props) => {<br>
+                    	&nbsp;&nbsp;&nbsp;return(<br>
+                    	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JSX code<br>
+                      &nbsp;&nbsp;&nbsp;);<br>
+                    }
+                  </code>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <br>
+
+          <h3>Functional component example</h3>
+
+          <div class="row">
+            <div class="col-md-10">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                    <code>
+                      //code in file inside component folder<br>
+                      const List = function(props){<br>
+                        &nbsp;&nbsp;&nbsp;return(<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Technologies {props.name} have learned&lt;/h1&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;ReactJS&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Angular&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Java&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Spring&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;HTML&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;CSS&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;JavaScript&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;SQL&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+                        &nbsp;&nbsp;&nbsp;);<br>
+                      }<br>
+
+                      <br>
+                      //code in file index.js<br>
+                      ReactDOM.render(&lt;List name="Gaudy" /&gt;, document.querySelector('.container-fluid'));<br>
+                    </code>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div><img src="/img/content3/functional.png" class="img-responsive center-image example-image"></div>
+          </div>
+          <p class="image-footer">Functional component shown on the browser.</p>
+
+          <hr>
+
+          <h2 id="sec6">Class based components</h2>
+
+          <h3>Component state</h3>
+
+          <p>
+            A key concept on React is component state, which is a JavaScript plain object to record and react to user
+            events. When you detect your component needs to record an element in order to work you need a class based
+            component. Every class based component has its own object state and every time the object state changes
+            the component re-renders itself.
+          </p>
+
+          <h3>Class based component</h3>
+          <ul>
+            <li>This type of component allows us to maintain internal record keeping.</li>
+            <li>Also, it allows us to handle events:</li>
+            <ul>
+              <li>By declaring function which handles the event.</li>
+              <li>Pass the event handler to the element we want to monitor.</li>
+              <li>Render the method.</li>
+            </ul>
+         </ul>
+
+         <h3>Class based component syntax</h3>
+
+         <div class="row">
+           <div class="col-md-10">
+             <div class="panel panel-default">
+               <div class="panel-body">
+                   <code>
+                     class nameComponent extends Component {<br>
+                      	&nbsp;&nbsp;&nbsp;constructor(props){<br>
+                      		&nbsp;&nbsp;&nbsp;&nbsp;super(props);<br>
+                      		&nbsp;&nbsp;&nbsp;&nbsp;this.state={nameStateItem = initialValue};<br>
+                        &nbsp;&nbsp;&nbsp;}<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;render(){<br>
+                      	  &nbsp;&nbsp;&nbsp;&nbsp;return(<br>
+                      		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JSX code<br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;);<br>
+                        &nbsp;&nbsp;&nbsp;}<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;//you can add other custom methods<br>
+                        &nbsp;&nbsp;&nbsp;method1(){<br>
+                        &nbsp;&nbsp;&nbsp;}<br>
+                    }
+                   </code>
+               </div>
+             </div>
+           </div>
+         </div>
+
+         <h3>Class based component example</h3>
+
+         <div class="row">
+           <div class="col-md-10">
+             <div class="panel panel-default">
+               <div class="panel-body">
+                   <code>
+                      import React, { Component } from 'react';<br>
+                      <br>
+                      export default class Counter extends Component {<br>
+                      &nbsp;&nbsp;&nbsp;constructor(props){<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;super(props);<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;this.state={value : 0};<br>
+                      &nbsp;&nbsp;&nbsp;}<br>
+                      <br>
+                      &nbsp;&nbsp;&nbsp;render(){<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;return(<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;Now the counter value is: {this.state.value}<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&lt;button onClick={this.incrementValue.bind(this)} className="btn btn-primary"&gt;
+                        Increment&lt;/button&gt;<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;);<br>
+                      &nbsp;&nbsp;&nbsp;}<br>
+                      <br>
+                      &nbsp;&nbsp;&nbsp;incrementValue(){<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;this.setState({ value: this.state.value + 1 });<br>
+                      &nbsp;&nbsp;&nbsp;}<br>
+                      }
+                   </code>
+               </div>
+             </div>
+           </div>
+         </div>
+
+         <div class="row">
+           <div><img src="/img/content3/counter-initial.png" class="img-responsive center-image example-image"></div>
+         </div>
+         <div class="row">
+           <div><img src="/img/content3/counter-working.png" class="img-responsive center-image example-image"></div>
+         </div>
+         <p class="image-footer">Class based component shown on the browser before and after some clicks.</p>
+
+         <h3>What is constructor function for?</h3>
+
+         <ul>
+           <li>As in other languages, constructor allows us to set state values for the component.</li>
+           <li>Props parameter is an object with all the properties that the component receives from other components.</li>
+           <li>The component can access these properties with this.props.nameProperty and this object is available in every
+             component method.</li>
+         </ul>
+
+         <h3>What is render function for?</h3>
+
+         <ul>
+           <li>This function takes a ReactElement and render it to the DOM. React knows where to place the element with a
+           DOM element which is provided to it.</li>
+           <li>Render() loads at the beginning of class component loading process, no matter if it doesn't have complete
+             data (we need to assure stable behavior when the component hasn't received data yet).</li>
+         </ul>
+
+          <hr>
+
+          <h2 id="sec7">References</h2>
+            <ul>
+
+              <li>Facebook Open Source (2017). <i>React.</i> Recover from
+              <a href="https://facebook.github.io/react/docs/introducing-jsx.html">https://facebook.github.io/react/docs/introducing-jsx.html</a></li>
+              <li>Gackenheimer C. (2015). <i>Introduction to React.</i> Apress.</li>
+              <li>Grider S. (2017). <i>Modern React with Redux.</i> Recover from
+              <a href="https://www.udemy.com/react-redux/learn/v4/overview">https://www.udemy.com/react-redux/learn/v4/overview</a></li>
+              <li>Li S. (2015). <i>React: Create maintainable, high-performance UI components.</i> Recover from
+              <a href="https://www.ibm.com/developerworks/library/wa-react-intro/index.html">https://www.ibm.com/developerworks/library/wa-react-intro/index.html</a></li>
+            </ul>
+          <hr>
+
+          </div><!--/right-->
+    	</div><!--/row-->
+  </div><!--/container-->
+
+  <div w3-include-html="/html/footer.html"></div>
+  <script>
+  w3.includeHTML();
+  </script>
+</body>
+</html>

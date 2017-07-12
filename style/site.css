@@ -5,8 +5,20 @@
 
 .image-footer{
   text-align: center;
+  font-weight: bold;
 }
 
 .example-image{
   width : 70%;
+}
+
+.github-style{
+  margin-left:10px;
+  width:42px;
+  height:42px;
+  border:0;
+}
+
+.other-image{
+  width : 60%;
 }

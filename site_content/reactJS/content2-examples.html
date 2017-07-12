@@ -51,6 +51,7 @@
         <!--left-->
         <div class="col-md-3" id="leftCol">
           <ul class="nav nav-stacked" id="sidebar">
+            <li><a href="#sec">Course Material</a></li>
             <li><a href="#sec0">How to use JSX?</a></li>
             <li><a href="#sec1">Example 1</a></li>
             <li><a href="#sec2">Example 2</a></li>
@@ -68,6 +69,16 @@
 
         <!--right-->
         <div class="col-md-9">
+
+          <h2 id="sec">Course Material</h2>
+          <p>
+            All course examples are on github repository React_course_examples
+            <a href="https://github.com/gbm2494/React_course_examples">
+              <img src="/img/github.png" alt="ReactJS course" class="github-style">
+            </a>
+          </p>
+          <hr>
+
           <h2 id="sec0">How to use JSX?</h2>
             <p>Execute command <strong>sudo npm install -g jsx</strong> to install JSX in terminal to test examples:</p>
             <div class="row">
@@ -487,5 +498,10 @@
           </div><!--/right-->
     	</div><!--/row-->
   </div><!--/container-->
+
+  <div w3-include-html="/html/footer.html"></div>
+  <script>
+  w3.includeHTML();
+  </script>
 </body>
 </html>

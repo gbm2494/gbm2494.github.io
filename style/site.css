@@ -21,3 +21,12 @@
 .other-image{
   width: 60%;
 }
+
+.panel-body{
+  background-color: #7d7c7c;
+}
+
+code{
+  background-color: #7d7c7c;
+  color : #e2ff14;
+}

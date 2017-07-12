@@ -52,7 +52,8 @@
         <div class="col-md-3" id="leftCol">
           <ul class="nav nav-stacked" id="sidebar">
             <li><a href="#sec">Course Material</a></li>
-            <li><a href="#sec0">Example</a></li>
+            <li><a href="#sec0">Example Mockup</a></li>
+            <li><a href="#sec1">Example - Step by step</a></li>
           </ul>
         </div><!--/left-->
 
@@ -68,29 +69,36 @@
           </p>
           <hr>
 
-          <h2 id="sec0">Example</h2>
-            <ol>
-              <li>Inside project folder, create file main.jsx with this code:</li><br>
-              <div class="row">
-                <div class="col-md-8">
-                  <div class="panel panel-default">
-                    <div class="panel-body">
-                        <code>
-                          class _Main {<br>
-                            &nbsp;&nbsp;&nbsp;static function main(args : string[]) : void {<br>
-                                &nbsp;&nbsp;&nbsp;&nbsp;log "Hello, world!";
-                            <br>&nbsp;&nbsp;&nbsp;}
-                        <br>}
-                        </code>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <li>Run code with command <strong>jsx --run main.jsx</strong>:</li>
-            </ol>
+          <h2 id="sec0">Example Mockup</h2>
             <div class="row">
-              <div><img src="/img/content2/example1.png" class="img-responsive center-image example-image"></div>
+              <div><img src="/img/content3/mockup1.png" class="img-responsive center-image example-image"></div>
             </div>
+            <p class="image-footer">Application mockup: app that displays a list of news obtained from a JSON object.</p>
+
+            <p>
+              The application should display a list of news from a JSON object, this list has to be displayed as a sidebar at the left.
+              When a user clicks on a list item the information from this new has to be shown in the right side of the page.
+            </p>
+
+            <div class="row">
+              <div><img src="/img/content3/mockup2.png" class="img-responsive center-image example-image"></div>
+            </div>
+            <p class="image-footer">Application should be divided on reusable components.</p>
+
+            <p>
+              The application has to be divided in different components (ReactJS produces individual components). Components can be:
+            </p>
+
+            <ul>
+              <li>Component that displays the clicked item.</li>
+              <li>Single item for a new on the sidebar.</li>
+              <li>News list conformed by multiple single items.</li>
+            </ul>
+
+          <hr>
+
+          <h2 id="sec1">Example - Step by step</h2>
+
           <hr>
 
           </div><!--/right-->

@@ -1,0 +1,506 @@
+<html>
+  <head>
+      <title>Web Development Blog - ReactJS</title>
+      <link rel="stylesheet" href="/style/bootstrap/css/bootstrap.min.css">
+      <link rel="stylesheet" href="/style/customizable_menu.css">
+      <link rel="stylesheet" href="/style/site.css">
+      <script src="/js/jquery-3.2.1.min.js"></script>
+      <script src="/style/bootstrap/js/bootstrap.min.js"></script>
+      <script src="/js/w3.js"></script>
+      <script src="/js/customizable_menu.js"></script>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+<body>
+  <div w3-include-html="/html/menu.html"></div>
+  <script>
+  w3.includeHTML();
+  </script>
+
+  <div id="masthead">
+    <div class="container">
+        <div class="row">
+          <div class="col-md-7">
+            <h1>ReactJS Example
+              <p class="lead">Example Step by Step for content 3: News Feed</p>
+            </h1>
+          </div>
+          <div class="col-md-5">
+              <div class="well well-lg">
+                <div class="row">
+                  <div class="col-sm-6">
+                    	<img src="/img/redux_react.png" class="img-responsive">
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div><!--/container-->
+  </div><!--/masthead-->
+
+  <!--main-->
+  <div class="container">
+
+    <ol class="breadcrumb">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/index.html">ReactJS and Redux</a></li>
+      <li><a href="/site_content/reactJS/content3.html">Content 3: Introduction to ReactJS</a></li>
+      <li><a href="/site_content/reactJS/content3-examples.html">Examples Section</a></li>
+      <li class="active">Example News Feed - Step by step</li>
+    </ol>
+
+  	<div class="row">
+        <!--left-->
+        <div class="col-md-3" id="leftCol">
+          <ul class="nav nav-stacked" id="sidebar">
+            <li><a href="#sec">Course Material</a></li>
+            <li><a href="#sec1">Example News Feed - Step by step</a></li>
+            <li><a href="#sec2">- Setup environment</a></li>
+            <li><a href="#sec3">- Start project</a></li>
+            <li><a href="#sec4">- Changes on index.html</a></li>
+            <li><a href="#sec5">- Data used for the app</a></li>
+            <li><a href="#sec6">- Changes on index.js</a></li>
+            <li><a href="#sec7">- Create App component</a></li>
+            <li><a href="#sec8">- Create NewsList component</a></li>
+            <li><a href="#sec9">- Create NewsItem component</a></li>
+            <li><a href="#sec10">- Create NewsDetails component</a></li>
+            <li><a href="#sec11">- Change current new selected by clicking news</a></li>
+          </ul>
+        </div><!--/left-->
+
+        <!--right-->
+        <div class="col-md-9">
+
+          <h2 id="sec">Course Material</h2>
+          <p>
+            All course examples are on github repository React_course_examples
+            <a href="https://github.com/gbm2494/React_course_examples">
+              <img src="/img/github.png" alt="ReactJS course" class="github-style">
+            </a>
+          </p>
+          <hr>
+
+          <h2 id="sec1">Example News Feed - Step by step</h2>
+
+          <h3 id="sec2">Setup environment</h3>
+
+          <p>I will make this example using the same boilerplate project I recommended before: </p>
+
+          <div class="row">
+            <div><img src="/img/content3/folder.png" class="img-responsive center-image other-image"></div>
+          </div>
+
+          <hr>
+
+          <h3 id="sec3">Start project</h3>
+
+          <p>We need to install all npm dependencies for the project as we made before:</p>
+
+          <div class="row">
+            <div><img src="/img/content3/example-news/npm-install.png" class="img-responsive center-image other-image"></div>
+          </div>
+
+          <hr>
+
+          <h3 id="sec4">Changes on index.html</h3>
+
+          <p>By default index.html has the following code:</p>
+
+          <div class="row">
+            <div><img src="/img/content3/example-news/index-html.png" class="img-responsive center-image example-image"></div>
+          </div>
+
+          </br>
+
+          <p>But we want to make some changes to display our app in a bigger container, so we are going to have a container-fluid
+          class instead of container.</p>
+
+          <div class="row">
+            <div><img src="/img/content3/example-news/index-html2.png" class="img-responsive center-image example-image"></div>
+          </div>
+
+          <hr>
+
+          <h3 id="sec5">Data used for the app</h3>
+
+          <p>For this example, as we are only use React, we will setup a file that maintains the data we want to display in the app.
+          To use this file we need to create a new folder called data inside src folder:</p>
+
+          <div class="row">
+            <div><img src="/img/content3/example-news/data-folder.png" class="img-responsive center-image little-image"></div>
+          </div>
+
+          <p>I used the <a href="https://newsapi.org/bbc-sport-api">BBC Sport API</a> to generate the JSON object I want to keep
+          on this folder. I added the JSON object I got to a file called data.js inside this folder:</p>
+
+          <div class="row">
+            <div><img src="/img/content3/example-news/data-file.png" class="img-responsive center-image little-image"></div>
+          </div>
+
+          <p>The JSON object as some properties but we are going to use just the articles array to display information in our app:</p>
+
+          <div class="row">
+            <div><img src="/img/content3/example-news/data-content.png" class="img-responsive center-image example-image"></div>
+          </div>
+
+          <hr>
+
+          <h3 id="sec6">Changes on index.js</h3>
+
+          <p>This file is one of the most important for the app because we are going to make the start point of our application inside
+          it. If we go the index.js we are going to see the current content:</p>
+
+          <div class="row">
+            <div><img src="/img/content3/example-news/index-js.png" class="img-responsive center-image example-image"></div>
+          </div>
+
+          <h4>Delete some code</h4>
+
+          <p>All code related to Redux is not needed in this example so we are going to delete it:</p>
+
+          <div class="row">
+            <div><img src="/img/content3/example-news/index-js2.png" class="img-responsive center-image example-image"></div>
+          </div>
+
+          <h4>Keep things simple</h4>
+          <p>If we try to run the project with <span class="important">npm start</span> on terminal we are going to see this message in the browser:</p>
+
+          <div class="row">
+            <div><img src="/img/content3/example-news/npm-start.png" class="img-responsive center-image other-image"></div>
+          </div>
+
+          <p>That happens because in the file index.js we are adding App component to the DOM. The code inside the red rectangle
+          is where we are importing the component while the code inside the yellow rectangle is where we are adding the component to the DOM
+          to be rendered.</p>
+
+          <div class="row">
+            <div><img src="/img/content3/example-news/index-js3.png" class="img-responsive center-image example-image"></div>
+          </div>
+
+          <p>To keep things simple we are not going to import the App component anymore. We are going to make the App component
+          from scratch in the same index.js (this is optional, if you want you can make the same logic we are going to make inside
+          index.js on App.js file inside Components folder).</p>
+
+          <hr>
+
+          <h3 id="sec7">Create App component</h3>
+
+          <p>Almost every React application has an App component. This component is in the top level of components and is in charge
+          of all other components to be used inside the application. In other words, this component is the starting point of our
+        application. If we see our mockup for news application we are going to see all the components we need:</p>
+
+        <div class="row">
+          <div><img src="/img/content3/mockup2.png" class="img-responsive center-image example-image"></div>
+        </div>
+
+        <ul>
+          <li>Component that displays the clicked item.</li>
+          <li>Single item for a new on the sidebar.</li>
+          <li>News list conformed by multiple single items.</li>
+        </ul>
+
+        <p>All these components have to be contained inside our App component. We need a NewsList and a NewsDetails component
+          (NewsItem component is part of NewsList component so we don't to use it directly in our App component).</p>
+        <p>But before we create all these components we need to define what state App component should handle. All our application
+        needs to use news, so probably we need an array of news, maybe as the array we saw inside the JSON object we added to the project
+        on data.js file. What else do we need? Probably we need a state to know what is the current new that is displayed on NewsDetails
+        component, right?</p>
+        <p>But as we saw before, multiple components can handle pieces of state, so we have to determine which components should
+        handle information. As a good tip <span class="important">you should prefer functional components than class based components
+        because class based components are more "expensive" for the browser.</span> You should use class based component only when they
+        are really needed. So with this is mind, I recommend to handle both pieces of state on App component.</p>
+
+        <h4>Add state to App component</h4>
+
+        <p>First, we need to import inside index.js file the data we are going to use. If we see the code inside yellow rectangle
+        we are importing the JSON object we made before. After that, we use this object we imported to set the initial value of our state:
+        news and SelectedNews. We used articles property inside data object, this articles property is an array of objects with properties
+        that describe a set of news. </p>
+        <div class="row">
+          <div><img src="/img/content3/example-news/app-component.png" class="img-responsive center-image example-image"></div>
+        </div>
+
+        <p>If we run the project again we are going to see a message that is the same that the div we added to the render method inside our
+          component:</p>
+
+        <div class="row">
+          <div><img src="/img/content3/example-news/npm-start2.png" class="img-responsive center-image other-image"></div>
+        </div>
+
+        <p>Now we need to add some components to our App component.</p>
+
+        <hr>
+
+        <h3 id="sec8">Create NewsList component</h3>
+
+        <p>We need to display at left side of the screen a list of news. We can make this list as an individual component to be added
+          in our App component so we are going to create a new file called news_list.js inside components folder. We are going to add some
+          code to this file:</p>
+
+        <div class="row">
+          <div><img src="/img/content3/example-news/news-list.png" class="img-responsive center-image other-image"></div>
+        </div>
+
+        <p>As we can see this file is a simple component and, just for now, we want to show a message where the list should load.
+          We can add this component to our App component:</p>
+
+          <div class="row">
+            <div><img src="/img/content3/example-news/index-js4.png" class="img-responsive center-image example-image"></div>
+          </div>
+
+        <p>Now if we run the project we are going to see something like this:</p>
+
+        <div class="row">
+          <div><img src="/img/content3/example-news/npm-start3.png" class="img-responsive center-image other-image"></div>
+        </div>
+
+        <p>Pretty simple but is exactly how it has to work. Now we are going to create newsItem component in order to create a real
+        list of news.</p>
+
+        <hr>
+
+        <h3 id="sec9">Create NewsItem component</h3>
+
+        <p>Our newsList component will be made by a set of newsItems. You can imagine these items as list items on a order or unorder
+        list made in html. Every position on our news array (part of the state) should be rendered as a newsItem component that will
+        be contained inside our List component. First, to understand the process we are going to see how the list component can handle
+        the array of news that it receives.</p>
+
+        <p>First, we need to modify our App component, we need to send to NewsList component the piece of state that it needs to work
+        (news array):</p>
+
+        <div class="row">
+          <div><img src="/img/content3/example-news/index-js5.png" class="img-responsive center-image example-image"></div>
+        </div>
+
+        <p class="important">In the example above App component is sending a piece of state to NewsList component, and NewsList
+        component can access this state using props object. </p>
+
+        <p>Now we can access this array inside our NewsList component like this:</p>
+
+        <div class="row">
+          <div><img src="/img/content3/example-news/news-list2.png" class="img-responsive center-image other-image"></div>
+        </div>
+
+        <p>Array objects have a built-in function called map that allows us to iterate every item inside the array without an explicit
+        for statement. Map function is a very useful and used function in React applications, because is more efficient than other methods.
+        I just printed every news description as a list item to show how we can show every new in our component:</p>
+
+        <div class="row">
+          <div><img src="/img/content3/example-news/npm-start4.png" class="img-responsive center-image example-image"></div>
+        </div>
+
+        <p>Now we have to create a file called news_item.js inside components folder. We are going to add this code to the file:</p>
+
+        <div class="row">
+          <div><img src="/img/content3/example-news/news-item.png" class="img-responsive center-image example-image"></div>
+        </div>
+
+        <p>Almost all code is made with style purposes but some key aspects are:
+          <ol>
+              <li>{singleNews} parameter for the function is a decomposition allowed by ES6 to extract a prop property without explicity call
+              props. Is the same to receive just props and make props.singleNews.</li>
+              <li>const imageUrl is a ES6 feature that allows us to make constants that will be used in the html section, we are using
+              it to store the imageUrl of the news picture we want to show.</li>
+          </ol>
+        </p>
+
+        <p>We can add this css code the style.css inside style folder to enhance the visibility of our app:</p>
+
+        <div class="row">
+          <div class="col-md-8">
+            <div class="panel panel-default">
+              <div class="panel-heading"><strong>CSS code</strong></div>
+              <div class="panel-body">
+                <code>
+                  .sidebar-image{
+                    width: 50px;
+                  }<br>
+
+                  .media{
+                    cursor: pointer;
+                  }
+                </code>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p>Now we just need to import our new component inside NewsList component and use it:</p>
+
+        <div class="row">
+          <div><img src="/img/content3/example-news/news-item2.png" class="img-responsive center-image example-image"></div>
+        </div>
+
+        <p>Some key aspects are:</p>
+        <ol>
+          <li>We use the map function to load the component NewsItem instead of loading the news description, as we did before.
+            We just need to provide the necessary props to the component (singleNews), key is not a prop that we are going to use
+            in the component but React has a requirement that we need to add a key to every component that will be rendered as a list. You
+            can test this component without the key attribute to see how the application crashes.</li>
+          <li>We load the const inside the div as we did before.</li>
+        </ol>
+
+        <p>If we run the application we are going to see this:</p>
+
+        <div class="row">
+          <div><img src="/img/content3/example-news/npm-start5.png" class="img-responsive center-image example-image"></div>
+        </div>
+
+        <p>Much better, right? Now we need to implement the current news selected component.</p>
+
+        <hr>
+
+        <h3 id="sec10">Create NewsDetails component</h3>
+
+        <p>Now we need to create a new component called news_details.js inside components folder. After that we need to add
+        this code: </p>
+
+        <div class="row">
+          <div><img src="/img/content3/example-news/news-details.png" class="img-responsive center-image example-image"></div>
+        </div>
+
+        <p>In this code I added some new things:</p>
+        <ol>
+          <li>Inside the red rectangle, we can see a new if that  we haven't used before. This statement allows us to load a message
+          if the prop information that the component needs is not available yet. Remember the behavior of React, it re-renders itself
+          if a prop or state value change so, if the information that the component needs is available at some time in the future the
+          component will render the information again.</li>
+          <li>We can load the information we want to show in the component inside constants (as I did in the example) but is not mandatory.</li>
+          <li>We render the information inside the return statement of the component. Some of this code is just for style purposes.</li>
+        </ol>
+
+        <p>We can add this css code the style.css inside style folder:</p>
+
+        <div class="row">
+          <div class="col-md-8">
+            <div class="panel panel-default">
+              <div class="panel-heading"><strong>CSS code</strong></div>
+              <div class="panel-body">
+                <code>
+                  .news_details{
+                    text-align: center;
+                  }<br>
+
+                  .news_details img{
+                    padding : 2em;
+                  }<br>
+
+                  .details p{
+                    padding: 1em;
+                  }<br>
+
+                  .author{
+                    width : 80%;
+                    padding-bottom: 1em;
+                  }<br>
+                </code>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p>We are just missing one thing, we need to add this new component to our App component.</p>
+
+        <div class="row">
+          <div><img src="/img/content3/example-news/index-js6.png" class="img-responsive center-image example-image"></div>
+        </div>
+
+        <p>In this code we can notice some things:</p>
+        <ol>
+          <li>We set a default value to our state selectedNews, that is because we want to have a selected new when the user
+          hasn't clicked any news.</li>
+          <li>We add the statement we used in the newsDetail component in case the state is not available yet for the component.</li>
+          <li>We add the newsDetail component to the App component, and we have to send the required prop to the component.</li>
+        </ol>
+
+        <p>If we run the app we are going to see an error like this one:</p>
+
+        <div class="row">
+          <div><img src="/img/content3/example-news/error.png" class="img-responsive center-image example-image"></div>
+        </div>
+
+        <p>That's because we didn't import the component:</p>
+
+        <div class="row">
+          <div><img src="/img/content3/example-news/error2.png" class="img-responsive center-image example-image"></div>
+        </div>
+
+        <p>Now if we run the app we are going to see this:</p>
+
+        <div class="row">
+          <div><img src="/img/content3/example-news/npm-start6.png" class="img-responsive center-image example-image"></div>
+        </div>
+
+        <p>But if click a new nothing happens, why? We are going to fix this soon.</p>
+
+        <hr>
+
+        <h3 id="sec11">Change current new selected by clicking news</h3>
+
+        <p>We just need to fix a few things to finish our application. </p>
+
+        <h4>Provide functionality to our App component</h4>
+
+        <p>When the App component renders the newsList component we need to provide it with a function to handle what would
+        happen if someone clicks and item from the list. So we need to add this code:</p>
+
+        <div class="row">
+          <div><img src="/img/content3/example-news/index-js7.png" class="img-responsive center-image example-image"></div>
+        </div>
+
+        <p>As we can see in the example, we can add functions to our props. In this case the component should send me back
+        a selectedNews and I will use it to update my state (this function is using ES6 syntax, so I don't need to use
+        this.setState({selectedNews : selectedNews}) because ES6 allows us to use just one name if both use the same). </p>
+
+        <h4>Provide functionality to our NewsList component</h4>
+
+        <p>Now we need to use the function that was sent from the App component in our NewsList component. We need to add
+        this code:</p>
+
+        <div class="row">
+          <div><img src="/img/content3/example-news/news-list3.png" class="img-responsive center-image example-image"></div>
+        </div>
+
+        <p>What we did is to send the function that NewsList received as a prop to NewsItem component. That is reasonable
+        because, as we saw before, every component should handle just the state that it needs to work and probably the NewsItem
+        component is the only one interested in change the current selected new.</p>
+
+        <h4>Provide functionality to our NewsItem component</h4>
+
+        <p>Last, we need to add code to handle the new prop that NewsList component sent to NewsItem. First, as we used
+        decomposition from ES6 in our component we need to add the new prop (see red rectangle in the image) and, after that,
+        we need to implement an onClick call inside the li element (function already implemented for li and other html elements)
+        and send the singleNews object to the callback function received from the App component (singleNews object is an object
+        for the new with the same properties that the selectedNews state expects).
+        </p>
+
+        <div class="row">
+          <div><img src="/img/content3/example-news/news-item3.png" class="img-responsive center-image example-image"></div>
+        </div>
+
+        <p>If we run the application we are going to see the final result we have expected:</p>
+
+        <div class="row">
+          <div><img src="/img/content3/example-news/final.png" class="img-responsive center-image example-image"></div>
+        </div>
+
+        <p>If we click different news:</p>
+
+        <div class="row">
+          <div><img src="/img/content3/example-news/final2.png" class="img-responsive center-image example-image"></div>
+        </div>
+
+        <div class="row">
+          <div><img src="/img/content3/example-news/final3.png" class="img-responsive center-image example-image"></div>
+        </div>
+
+          </div><!--/right-->
+    	</div><!--/row-->
+  </div><!--/container-->
+
+  <div w3-include-html="/html/footer.html"></div>
+  <script>
+  w3.includeHTML();
+  </script>
+</body>
+</html>

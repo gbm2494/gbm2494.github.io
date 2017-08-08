@@ -10,6 +10,7 @@
 
 .example-image{
   width: 70%;
+  padding-bottom: 1em;
 }
 
 .github-style{
@@ -20,9 +21,18 @@
 
 .other-image{
   width: 60%;
+  padding-bottom: 1em;
+}
+
+.little-image{
+  width: 30%;
+  padding-bottom: 1em;
 }
 
 code{
   background-color: #ffffff;
+}
 
+.important{
+  font-weight: bold;
 }
